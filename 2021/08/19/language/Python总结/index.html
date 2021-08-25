@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Jupyter 启动 1jupyter notebook ModuleNotFoundError: No module named ‘okex’ 在导入本地文件夹的文件时报错如上，可以在import这个模块之前添加以下代码，然后再import 1234module_path &#x3D; os.path.abspath(os.path.join(&amp;#x27;..&amp;#x27;))print(&quot;mod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python总结">
+<meta property="og:url" content="https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="滴水成涓">
+<meta property="og:description" content="Jupyter 启动 1jupyter notebook ModuleNotFoundError: No module named ‘okex’ 在导入本地文件夹的文件时报错如上，可以在import这个模块之前添加以下代码，然后再import 1234module_path &#x3D; os.path.abspath(os.path.join(&amp;#x27;..&amp;#x27;))print(&quot;mod">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-19T14:08:38.714Z">
+<meta property="article:modified_time" content="2021-08-19T14:08:38.714Z">
+<meta property="article:author" content="guozhe">
+<meta property="article:tag" content="language">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Python总结</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="滴水成涓" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/guozhe001">项目</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/08/19/blockchain/eth/storage/%E4%B8%8Eswarm-bee%E4%BA%A4%E4%BA%92/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/08/19/language/d%20/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&text=Python总结"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&title=Python总结"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&is_video=false&description=Python总结"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python总结&body=Check out this article: https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&title=Python总结"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&title=Python总结"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&title=Python总结"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&title=Python总结"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&name=Python总结&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&t=Python总结"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Jupyter"><span class="toc-number">1.</span> <span class="toc-text">Jupyter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-number">1.1.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ModuleNotFoundError-No-module-named-%E2%80%98okex%E2%80%99"><span class="toc-number">1.2.</span> <span class="toc-text">ModuleNotFoundError: No module named ‘okex’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AttributeError-module-%E2%80%98util-file-util%E2%80%99-has-no-attribute-%E2%80%98exists%E2%80%99"><span class="toc-number">1.3.</span> <span class="toc-text">AttributeError: module ‘util.file_util’ has no attribute ‘exists’</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pydoc"><span class="toc-number">2.</span> <span class="toc-text">Pydoc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pip-install%E6%8A%A5%E9%94%99"><span class="toc-number">3.</span> <span class="toc-text">pip install报错</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Python总结
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">guozhe</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-08-19T14:08:38.714Z" itemprop="datePublished">2021-08-19</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/language/">language</a> › <a class="category-link" href="/categories/language/Python/">Python</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Python/" rel="tag">Python</a>, <a class="tag-link-link" href="/tags/language/" rel="tag">language</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="Jupyter">Jupyter</h2>
+<h3 id="启动">启动</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure>
+<h3 id="ModuleNotFoundError-No-module-named-‘okex’">ModuleNotFoundError: No module named ‘okex’</h3>
+<p>在导入本地文件夹的文件时报错如上，可以在import这个模块之前添加以下代码，然后再import</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module_path = os.path.abspath(os.path.join(<span class="string">&#x27;..&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;module_path=&quot;</span>, module_path)</span><br><span class="line"><span class="keyword">if</span> module_path <span class="keyword">not</span> <span class="keyword">in</span> sys.path:</span><br><span class="line">    sys.path.append(module_path)</span><br></pre></td></tr></table></figure>
+<h3 id="AttributeError-module-‘util-file-util’-has-no-attribute-‘exists’"><a target="_blank" rel="noopener" href="https://www.528btc.com/bk/160265922370218.html">AttributeError</a>: module ‘util.file_util’ has no attribute ‘exists’</h3>
+<p>如果本地的python代码已经修改，如果不重启（刷新）jupyter会报错如上，刷新一下即可。</p>
+<h2 id="Pydoc">Pydoc</h2>
+<p>本地启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pydoc -p 6789</span><br></pre></td></tr></table></figure>
+<h2 id="pip-install报错">pip install报错</h2>
+<p>错误信息如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip3.9 install cytoolz</span></span><br><span class="line">Looking in indexes: http://mirrors.cloud.aliyuncs.com/pypi/simple/</span><br><span class="line">Collecting cytoolz</span><br><span class="line">  Downloading http://mirrors.cloud.aliyuncs.com/pypi/packages/58/67/1c60da8ba831bfefedb64c78b9f6820bdf58972797c95644ee3191daf27a/cytoolz-0.11.0.tar.gz (477 kB)</span><br><span class="line">     |████████████████████████████████| 477 kB 2.6 MB/s</span><br><span class="line">Requirement already satisfied: toolz&gt;=0.8.0 in /usr/local/lib/python3.9/site-packages (from cytoolz) (0.11.1)</span><br><span class="line">Using legacy &#x27;setup.py install&#x27; for cytoolz, since package &#x27;wheel&#x27; is not installed.</span><br><span class="line">Installing collected packages: cytoolz</span><br><span class="line">    Running setup.py install for cytoolz ... error</span><br><span class="line">    ERROR: Command errored out with exit status 1:</span><br><span class="line">     command: /usr/bin/python3.9 -u -c &#x27;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#x27;&quot;&#x27;&quot;&#x27;/tmp/pip-install-x0b5qh9y/cytoolz_939a8fed01cc43dc979d68c8072b3af1/setup.py&#x27;&quot;&#x27;&quot;&#x27;; __file__=&#x27;&quot;&#x27;&quot;&#x27;/tmp/pip-install-x0b5qh9y/cytoolz_939a8fed01cc43dc979d68c8072b3af1/setup.py&#x27;&quot;&#x27;&quot;&#x27;;f = getattr(tokenize, &#x27;&quot;&#x27;&quot;&#x27;open&#x27;&quot;&#x27;&quot;&#x27;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#x27;&quot;&#x27;&quot;&#x27;from setuptools import setup; setup()&#x27;&quot;&#x27;&quot;&#x27;);code = f.read().replace(&#x27;&quot;&#x27;&quot;&#x27;\r\n&#x27;&quot;&#x27;&quot;&#x27;, &#x27;&quot;&#x27;&quot;&#x27;\n&#x27;&quot;&#x27;&quot;&#x27;);f.close();exec(compile(code, __file__, &#x27;&quot;&#x27;&quot;&#x27;exec&#x27;&quot;&#x27;&quot;&#x27;))&#x27; install --record /tmp/pip-record-sp17_zhm/install-record.txt --single-version-externally-managed --compile --install-headers /usr/local/include/python3.9/cytoolz</span><br><span class="line">         cwd: /tmp/pip-install-x0b5qh9y/cytoolz_939a8fed01cc43dc979d68c8072b3af1/</span><br><span class="line">    Complete output (63 lines):</span><br><span class="line">    [1/5] Cythonizing cytoolz/dicttoolz.pyx</span><br><span class="line">    [2/5] Cythonizing cytoolz/functoolz.pyx</span><br><span class="line">    [3/5] Cythonizing cytoolz/itertoolz.pyx</span><br><span class="line">    [4/5] Cythonizing cytoolz/recipes.pyx</span><br><span class="line">    [5/5] Cythonizing cytoolz/utils.pyx</span><br><span class="line">    /usr/local/lib/python3.9/site-packages/setuptools/dist.py:691: UserWarning: Usage of dash-separated &#x27;index-url&#x27; will not be supported in future versions. Please use the underscore name &#x27;index_url&#x27; instead</span><br><span class="line">      warnings.warn(</span><br><span class="line">    running install</span><br><span class="line">    running build</span><br><span class="line">    running build_py</span><br><span class="line">    creating build</span><br><span class="line">    creating build/lib.linux-x86_64-3.9</span><br><span class="line">    creating build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/__init__.py -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/_signatures.py -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/_version.py -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/compatibility.py -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/utils_test.py -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    creating build/lib.linux-x86_64-3.9/cytoolz/curried</span><br><span class="line">    copying cytoolz/curried/__init__.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/curried</span><br><span class="line">    copying cytoolz/curried/exceptions.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/curried</span><br><span class="line">    copying cytoolz/curried/operator.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/curried</span><br><span class="line">    copying cytoolz/dicttoolz.pyx -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/functoolz.pyx -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/itertoolz.pyx -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/recipes.pyx -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/utils.pyx -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/__init__.pxd -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/cpython.pxd -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/dicttoolz.pxd -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/functoolz.pxd -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/itertoolz.pxd -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/recipes.pxd -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    copying cytoolz/utils.pxd -&gt; build/lib.linux-x86_64-3.9/cytoolz</span><br><span class="line">    creating build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/dev_skip_test.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_compatibility.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_curried.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_curried_toolzlike.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_dev_skip_test.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_dicttoolz.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_docstrings.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_doctests.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_embedded_sigs.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_functoolz.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_inspect_args.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_itertoolz.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_none_safe.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_recipes.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_serialization.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_signatures.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_tlz.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    copying cytoolz/tests/test_utils.py -&gt; build/lib.linux-x86_64-3.9/cytoolz/tests</span><br><span class="line">    running build_ext</span><br><span class="line">    building &#x27;cytoolz.dicttoolz&#x27; extension</span><br><span class="line">    creating build/temp.linux-x86_64-3.9</span><br><span class="line">    creating build/temp.linux-x86_64-3.9/cytoolz</span><br><span class="line">    gcc -pthread -Wno-unused-result -Wsign-compare -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DNDEBUG -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -m64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -D_GNU_SOURCE -fPIC -fwrapv -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -m64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -D_GNU_SOURCE -fPIC -fwrapv -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -m64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/python3.9 -c cytoolz/dicttoolz.c -o build/temp.linux-x86_64-3.9/cytoolz/dicttoolz.o</span><br><span class="line">    cytoolz/dicttoolz.c:19:10: fatal error: Python.h: No such file or directory</span><br><span class="line">     #include &quot;Python.h&quot;</span><br><span class="line">              ^~~~~~~~~~</span><br><span class="line">    compilation terminated.</span><br><span class="line">    error: command &#x27;/usr/bin/gcc&#x27; failed with exit code 1</span><br><span class="line">    ----------------------------------------</span><br><span class="line">ERROR: Command errored out with exit status 1: /usr/bin/python3.9 -u -c &#x27;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#x27;&quot;&#x27;&quot;&#x27;/tmp/pip-install-x0b5qh9y/cytoolz_939a8fed01cc43dc979d68c8072b3af1/setup.py&#x27;&quot;&#x27;&quot;&#x27;; __file__=&#x27;&quot;&#x27;&quot;&#x27;/tmp/pip-install-x0b5qh9y/cytoolz_939a8fed01cc43dc979d68c8072b3af1/setup.py&#x27;&quot;&#x27;&quot;&#x27;;f = getattr(tokenize, &#x27;&quot;&#x27;&quot;&#x27;open&#x27;&quot;&#x27;&quot;&#x27;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#x27;&quot;&#x27;&quot;&#x27;from setuptools import setup; setup()&#x27;&quot;&#x27;&quot;&#x27;);code = f.read().replace(&#x27;&quot;&#x27;&quot;&#x27;\r\n&#x27;&quot;&#x27;&quot;&#x27;, &#x27;&quot;&#x27;&quot;&#x27;\n&#x27;&quot;&#x27;&quot;&#x27;);f.close();exec(compile(code, __file__, &#x27;&quot;&#x27;&quot;&#x27;exec&#x27;&quot;&#x27;&quot;&#x27;))&#x27; install --record /tmp/pip-record-sp17_zhm/install-record.txt --single-version-externally-managed --compile --install-headers /usr/local/include/python3.9/cytoolz Check the logs for full command output.</span><br></pre></td></tr></table></figure>
+<p>解决方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install python39-devel</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/johnthegreat/p/13058230.html">redhat</a></li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/guozhe001">项目</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Jupyter"><span class="toc-number">1.</span> <span class="toc-text">Jupyter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-number">1.1.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ModuleNotFoundError-No-module-named-%E2%80%98okex%E2%80%99"><span class="toc-number">1.2.</span> <span class="toc-text">ModuleNotFoundError: No module named ‘okex’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AttributeError-module-%E2%80%98util-file-util%E2%80%99-has-no-attribute-%E2%80%98exists%E2%80%99"><span class="toc-number">1.3.</span> <span class="toc-text">AttributeError: module ‘util.file_util’ has no attribute ‘exists’</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pydoc"><span class="toc-number">2.</span> <span class="toc-text">Pydoc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pip-install%E6%8A%A5%E9%94%99"><span class="toc-number">3.</span> <span class="toc-text">pip install报错</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&text=Python总结"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&title=Python总结"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&is_video=false&description=Python总结"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python总结&body=Check out this article: https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&title=Python总结"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&title=Python总结"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&title=Python总结"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&title=Python总结"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&name=Python总结&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://guozhe001.github.io/2021/08/19/language/Python%E6%80%BB%E7%BB%93/&t=Python总结"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2021
+    guozhe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/guozhe001">项目</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
